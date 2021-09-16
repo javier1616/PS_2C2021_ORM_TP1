@@ -1,0 +1,26 @@
+
+1. Dividir el flujo dependiendo de la responsabilidad.
+
+Ejemplo: 
+ - Objeto View -> Se encarga de
+	- Comunicación con la consola
+        - Hacer los print
+	- Solicitar la información al usuario
+
+ - Objeto Service -> Es llamado por los objetos de tipo view.
+	- Tiene almacenado las logicas de validación
+	- Conoce a los objetos que saben realizar las consultas a la base de datos.
+
+ - Objeto Data -> 
+	- Sabe como guardar información
+	- Sabe como ir a buscar información en la base de datos.
+
+Entonces, el flujo ideal seria:  View -> Services -> Data
+
+View llama a Services cuando necesite guardar información
+o traer información de base de datos. El services siempre
+le devuelve la información en listas o objetos que el view
+sabe interpretar y realiza la logica necesario para mostrar
+la información en pantalla.
+Los services consumen los metodos que exponen los data
+como leer datos de bd o generar un insert o update.

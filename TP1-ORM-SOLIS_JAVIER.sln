@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TP1-ORM-SOLIS_JAVIER", "TP1-ORM-SOLIS_JAVIER\TP1-ORM-SOLIS_JAVIER.csproj", "{C36C58C7-9454-4DCF-894B-64F14016FE4B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C36C58C7-9454-4DCF-894B-64F14016FE4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C36C58C7-9454-4DCF-894B-64F14016FE4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C36C58C7-9454-4DCF-894B-64F14016FE4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C36C58C7-9454-4DCF-894B-64F14016FE4B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9659FBC3-1198-4DC4-B75C-E645E1687544}
+	EndGlobalSection
+EndGlobal

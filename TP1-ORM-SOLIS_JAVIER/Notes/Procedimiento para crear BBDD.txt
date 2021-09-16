@@ -1,0 +1,42 @@
+﻿Procedimiento y comandos necesarios para crear las BBDD
+
+1. Instalar:
+
+	- EntityFrameworkCore
+	- EntityFrameworkCore.SqlServer
+	- EntityFrameworkCore.Tools
+
+2. Escribir código de las clases con las que se levantará la BBDD
+
+3. Escribir la clase heredada de DbContext donde se indican las tablas y
+   la configuración de la BBDD
+
+4. Ir a Package Manager Console y escribir Add-Migration -Context [NOMBRE_DbContext] NOMBRE_MIGRATION
+   para crear el codigo de Migrations relativo al context que quiero
+   (si tengo varios DvContext necesitaré utilizar un Migrations por cada uno)
+
+5. Para crear las tablas tengo que usar el comando 
+	Update-Database -Context [NOMBRE_Contexto]
+
+-- LUEGO DE ESTE COMANDO SE CREA LA BASE DE DATOS --
+
+5.b Si necesito hacer cambios al modelo de base de datos:
+
+	1. Hago los cambios necesarios en las clases.
+	2. Hago add-migration y le coloco un nombre.
+	3. Hago update-database. Aplica todos los migrations en orden.
+
+NOTA: Para ver que comandos se van a mandar a SqlServer puedo usar el comando:
+      Script-DbContext -Context [NOMBRE_DbContext] 
+	  Con esto puedo ver si las tablas se estan creando bien.
+
+5. Comando para obtener ayuda en Package Manager
+	get-help entityframeworkcore
+
+NOTA: Si tengo que modificar la BBDD tengo que:
+	- remover la migracion
+	- hacer los cambios
+	- volver a crear 
+
+NOTA2: Scaffold-DbContext es para crear los modelos a partir de la BBDD
+       (DataBase-First)
