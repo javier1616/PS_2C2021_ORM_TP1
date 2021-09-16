@@ -97,6 +97,40 @@ namespace TP1_ORM_SOLIS_JAVIER.Migrations
                         });
                 });
 
+            modelBuilder.Entity("TP1_ORM_SOLIS_JAVIER.Entities.Funciones", b =>
+                {
+                    b.Property<int>("FuncionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("Fecha")
+                        .HasColumnType("datetime2");
+
+                    b.Property<TimeSpan>("Horario")
+                        .HasColumnType("time");
+
+                    b.Property<int>("PeliculaId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PeliculasPeliculaId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SalaId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("SalasSalaId")
+                        .HasColumnType("int");
+
+                    b.HasKey("FuncionId");
+
+                    b.HasIndex("PeliculasPeliculaId");
+
+                    b.HasIndex("SalasSalaId");
+
+                    b.ToTable("Funciones");
+                });
+
             modelBuilder.Entity("TP1_ORM_SOLIS_JAVIER.Entities.Mercaderia", b =>
                 {
                     b.Property<int>("MercaderiaId")
@@ -135,6 +169,120 @@ namespace TP1_ORM_SOLIS_JAVIER.Migrations
                     b.HasIndex("TipoMercaderiaId");
 
                     b.ToTable("Mercaderia");
+                });
+
+            modelBuilder.Entity("TP1_ORM_SOLIS_JAVIER.Entities.Peliculas", b =>
+                {
+                    b.Property<int>("PeliculaId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Poster")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<string>("Sinopsis")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<string>("Titulo")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Trailer")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.HasKey("PeliculaId");
+
+                    b.ToTable("Peliculas");
+
+                    b.HasData(
+                        new
+                        {
+                            PeliculaId = 1,
+                            Poster = "URL_Poster.png",
+                            Sinopsis = "Accidentes en un parque de atracciones con dinosaurios",
+                            Titulo = "Jurasic Park",
+                            Trailer = "URL_trailer.mp4"
+                        },
+                        new
+                        {
+                            PeliculaId = 2,
+                            Poster = "URL_Poster.png",
+                            Sinopsis = "Un cazarrecompensas intenta encontrar el santo grial",
+                            Titulo = "Indiana Jones y la Ultima Cruzada",
+                            Trailer = "URL_trailer.mp4"
+                        },
+                        new
+                        {
+                            PeliculaId = 3,
+                            Poster = "URL_Poster.png",
+                            Sinopsis = "Mas carreras, mas explosiones, mas velocidad. Ahora con naves espaciales",
+                            Titulo = "Rapido y Furioso 25: Carreras marcianas",
+                            Trailer = "URL_trailer.mp4"
+                        });
+                });
+
+            modelBuilder.Entity("TP1_ORM_SOLIS_JAVIER.Entities.Salas", b =>
+                {
+                    b.Property<int>("SalaId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Capacidad")
+                        .HasColumnType("int");
+
+                    b.HasKey("SalaId");
+
+                    b.ToTable("Salas");
+
+                    b.HasData(
+                        new
+                        {
+                            SalaId = 1,
+                            Capacidad = 50
+                        },
+                        new
+                        {
+                            SalaId = 2,
+                            Capacidad = 100
+                        },
+                        new
+                        {
+                            SalaId = 3,
+                            Capacidad = 1
+                        });
+                });
+
+            modelBuilder.Entity("TP1_ORM_SOLIS_JAVIER.Entities.Tickets", b =>
+                {
+                    b.Property<Guid>("TicketId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("FuncionId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("FuncionesFuncionId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Usuario")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("TicketId", "FuncionId");
+
+                    b.HasIndex("FuncionesFuncionId");
+
+                    b.ToTable("Tickets");
                 });
 
             modelBuilder.Entity("TP1_ORM_SOLIS_JAVIER.Entities.TipoMercaderia", b =>
@@ -236,6 +384,21 @@ namespace TP1_ORM_SOLIS_JAVIER.Migrations
                     b.Navigation("Mercaderia");
                 });
 
+            modelBuilder.Entity("TP1_ORM_SOLIS_JAVIER.Entities.Funciones", b =>
+                {
+                    b.HasOne("TP1_ORM_SOLIS_JAVIER.Entities.Peliculas", "Peliculas")
+                        .WithMany("Funciones")
+                        .HasForeignKey("PeliculasPeliculaId");
+
+                    b.HasOne("TP1_ORM_SOLIS_JAVIER.Entities.Salas", "Salas")
+                        .WithMany("Funciones")
+                        .HasForeignKey("SalasSalaId");
+
+                    b.Navigation("Peliculas");
+
+                    b.Navigation("Salas");
+                });
+
             modelBuilder.Entity("TP1_ORM_SOLIS_JAVIER.Entities.Mercaderia", b =>
                 {
                     b.HasOne("TP1_ORM_SOLIS_JAVIER.Entities.TipoMercaderia", "TipoMercaderia")
@@ -245,6 +408,15 @@ namespace TP1_ORM_SOLIS_JAVIER.Migrations
                         .IsRequired();
 
                     b.Navigation("TipoMercaderia");
+                });
+
+            modelBuilder.Entity("TP1_ORM_SOLIS_JAVIER.Entities.Tickets", b =>
+                {
+                    b.HasOne("TP1_ORM_SOLIS_JAVIER.Entities.Funciones", "Funciones")
+                        .WithMany("Tickets")
+                        .HasForeignKey("FuncionesFuncionId");
+
+                    b.Navigation("Funciones");
                 });
 
             modelBuilder.Entity("TP1_ORM_SOLIS_JAVIER.Entities.Comanda", b =>
@@ -257,9 +429,24 @@ namespace TP1_ORM_SOLIS_JAVIER.Migrations
                     b.Navigation("Comanda");
                 });
 
+            modelBuilder.Entity("TP1_ORM_SOLIS_JAVIER.Entities.Funciones", b =>
+                {
+                    b.Navigation("Tickets");
+                });
+
             modelBuilder.Entity("TP1_ORM_SOLIS_JAVIER.Entities.Mercaderia", b =>
                 {
                     b.Navigation("ComandaMercaderia");
+                });
+
+            modelBuilder.Entity("TP1_ORM_SOLIS_JAVIER.Entities.Peliculas", b =>
+                {
+                    b.Navigation("Funciones");
+                });
+
+            modelBuilder.Entity("TP1_ORM_SOLIS_JAVIER.Entities.Salas", b =>
+                {
+                    b.Navigation("Funciones");
                 });
 
             modelBuilder.Entity("TP1_ORM_SOLIS_JAVIER.Entities.TipoMercaderia", b =>
