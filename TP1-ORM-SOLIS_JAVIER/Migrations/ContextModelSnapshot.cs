@@ -19,84 +19,6 @@ namespace TP1_ORM_SOLIS_JAVIER.Migrations
                 .HasAnnotation("ProductVersion", "5.0.5")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("TP1_ORM_SOLIS_JAVIER.Entities.Comanda", b =>
-                {
-                    b.Property<Guid>("ComandaId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("Fecha")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("FormaEntregaId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PrecioTotal")
-                        .HasColumnType("int");
-
-                    b.HasKey("ComandaId");
-
-                    b.HasIndex("FormaEntregaId");
-
-                    b.ToTable("Comanda");
-                });
-
-            modelBuilder.Entity("TP1_ORM_SOLIS_JAVIER.Entities.ComandaMercaderia", b =>
-                {
-                    b.Property<int>("ComandaMercaderiaId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<Guid>("ComandaId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("MercaderiaId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ComandaMercaderiaId");
-
-                    b.HasIndex("ComandaId");
-
-                    b.HasIndex("MercaderiaId");
-
-                    b.ToTable("ComandaMercaderia");
-                });
-
-            modelBuilder.Entity("TP1_ORM_SOLIS_JAVIER.Entities.FormaEntrega", b =>
-                {
-                    b.Property<int>("FormaEntregaId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Descripcion")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.HasKey("FormaEntregaId");
-
-                    b.ToTable("FormaEntrega");
-
-                    b.HasData(
-                        new
-                        {
-                            FormaEntregaId = 1,
-                            Descripcion = "Salon"
-                        },
-                        new
-                        {
-                            FormaEntregaId = 2,
-                            Descripcion = "Delivery"
-                        },
-                        new
-                        {
-                            FormaEntregaId = 3,
-                            Descripcion = "Pedidos Ya"
-                        });
-                });
-
             modelBuilder.Entity("TP1_ORM_SOLIS_JAVIER.Entities.Funciones", b =>
                 {
                     b.Property<int>("FuncionId")
@@ -113,62 +35,50 @@ namespace TP1_ORM_SOLIS_JAVIER.Migrations
                     b.Property<int>("PeliculaId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("PeliculasPeliculaId")
-                        .HasColumnType("int");
-
                     b.Property<int>("SalaId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("SalasSalaId")
                         .HasColumnType("int");
 
                     b.HasKey("FuncionId");
 
-                    b.HasIndex("PeliculasPeliculaId");
+                    b.HasIndex("PeliculaId");
 
-                    b.HasIndex("SalasSalaId");
+                    b.HasIndex("SalaId");
 
                     b.ToTable("Funciones");
-                });
 
-            modelBuilder.Entity("TP1_ORM_SOLIS_JAVIER.Entities.Mercaderia", b =>
-                {
-                    b.Property<int>("MercaderiaId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Imagen")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<string>("Ingredientes")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<string>("Nombre")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<int>("Precio")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Preparacion")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<int>("TipoMercaderiaId")
-                        .HasColumnType("int");
-
-                    b.HasKey("MercaderiaId");
-
-                    b.HasIndex("TipoMercaderiaId");
-
-                    b.ToTable("Mercaderia");
+                    b.HasData(
+                        new
+                        {
+                            FuncionId = 1,
+                            Fecha = new DateTime(2008, 5, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Horario = new TimeSpan(0, 10, 0, 0, 0),
+                            PeliculaId = 1,
+                            SalaId = 1
+                        },
+                        new
+                        {
+                            FuncionId = 2,
+                            Fecha = new DateTime(2021, 5, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Horario = new TimeSpan(0, 10, 0, 0, 0),
+                            PeliculaId = 1,
+                            SalaId = 2
+                        },
+                        new
+                        {
+                            FuncionId = 3,
+                            Fecha = new DateTime(2021, 5, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Horario = new TimeSpan(0, 10, 0, 0, 0),
+                            PeliculaId = 1,
+                            SalaId = 1
+                        },
+                        new
+                        {
+                            FuncionId = 4,
+                            Fecha = new DateTime(2021, 5, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Horario = new TimeSpan(0, 22, 0, 0, 0),
+                            PeliculaId = 1,
+                            SalaId = 2
+                        });
                 });
 
             modelBuilder.Entity("TP1_ORM_SOLIS_JAVIER.Entities.Peliculas", b =>
@@ -206,26 +116,82 @@ namespace TP1_ORM_SOLIS_JAVIER.Migrations
                         new
                         {
                             PeliculaId = 1,
-                            Poster = "URL_Poster.png",
-                            Sinopsis = "Accidentes en un parque de atracciones con dinosaurios",
+                            Poster = "https://m.media-amazon.com/images/M/MV5BMjM2MDgxMDg0Nl5BMl5BanBnXkFtZTgwNTM2OTM5NDE@._V1_FMjpg_UX667_.jpg",
+                            Sinopsis = "Un paleontólogo pragmático que visita un parque temático casi completo tiene la tarea de proteger a un par de niños después de que un corte de energía provoque que los dinosaurios clonados del parque se suelten.",
                             Titulo = "Jurasic Park",
-                            Trailer = "URL_trailer.mp4"
+                            Trailer = "https://www.imdb.com/video/vi177055257?playlistId=tt0107290"
                         },
                         new
                         {
                             PeliculaId = 2,
-                            Poster = "URL_Poster.png",
-                            Sinopsis = "Un cazarrecompensas intenta encontrar el santo grial",
-                            Titulo = "Indiana Jones y la Ultima Cruzada",
-                            Trailer = "URL_trailer.mp4"
+                            Poster = "https://m.media-amazon.com/images/M/MV5BMjNkMzc2N2QtNjVlNS00ZTk5LTg0MTgtODY2MDAwNTMwZjBjXkEyXkFqcGdeQXVyNDk3NzU2MTQ@._V1_FMjpg_UY720_.jpg",
+                            Sinopsis = "En 1938, después de la desaparición de su padre el profesor Henry Jones Senior en su búsqueda del Santo Grial, Indiana Jones se enfrenta de nuevo a los Nazis para que evitar que obtengan sus poderes.",
+                            Titulo = "Indiana Jones and the Last Crusade",
+                            Trailer = "https://www.imdb.com/video/vi2007669529?playlistId=tt0097576"
                         },
                         new
                         {
                             PeliculaId = 3,
-                            Poster = "URL_Poster.png",
-                            Sinopsis = "Mas carreras, mas explosiones, mas velocidad. Ahora con naves espaciales",
-                            Titulo = "Rapido y Furioso 25: Carreras marcianas",
-                            Trailer = "URL_trailer.mp4"
+                            Poster = "https://m.media-amazon.com/images/M/MV5BZDVjN2FkYTQtNTBlOC00MjM5LTgzMWEtZWRlNGUyYmNiOTFiXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_FMjpg_UX467_.jpg",
+                            Sinopsis = "Un niño rompe inadvertidamente tres reglas importantes sobre su nueva mascota y provoca una horda de monstruos malévolos y traviesos en una pequeña ciudad.",
+                            Titulo = "Gremlins",
+                            Trailer = "https://www.imdb.com/video/vi2626338585?playlistId=tt0087363"
+                        },
+                        new
+                        {
+                            PeliculaId = 4,
+                            Poster = "https://m.media-amazon.com/images/M/MV5BZmU0M2Y1OGUtZjIxNi00ZjBkLTg1MjgtOWIyNThiZWIwYjRiXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_FMjpg_UX1218_.jpg",
+                            Sinopsis = "Marty McFly, un estudiante de secundaria de 17 años, es enviado accidentalmente treinta años atrás en un DeLorean que viaja en el tiempo inventado por su amigo íntimo, el científico disidente Doc Brown.",
+                            Titulo = "Back to the Future",
+                            Trailer = "https://www.imdb.com/video/vi252380953?playlistId=tt0088763"
+                        },
+                        new
+                        {
+                            PeliculaId = 5,
+                            Poster = "https://m.media-amazon.com/images/M/MV5BMTY3MjM1Mzc4N15BMl5BanBnXkFtZTgwODM0NzAxMDE@._V1_FMjpg_UX878_.jpg",
+                            Sinopsis = "En el futuro, el sádico líder de una banda es encarcelado y se ofrece como voluntario para un experimento de reeducación, pero no sale según lo planeado.",
+                            Titulo = "Clockwork Orange",
+                            Trailer = "https://www.imdb.com/video/vi4030506521?playlistId=tt0066921"
+                        },
+                        new
+                        {
+                            PeliculaId = 6,
+                            Poster = "https://m.media-amazon.com/images/M/MV5BZWMxOTEzMjktYjE3NC00NmZjLThlNzYtMDE3MDlmNWVmZTZkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_FMjpg_UX871_.jpg",
+                            Sinopsis = "Los tomates, hartos de tantos años de acabar como sofrito o bloody mary, están cobrando vida y están asesinando a los humanos. Se sospecha que este hecho está provocado por un pesticida creado por un loco que quiere el control del mundo.",
+                            Titulo = "Attack of the Killer Tomatoes!",
+                            Trailer = "https://www.imdb.com/video/vi179831065?playlistId=tt0080391"
+                        },
+                        new
+                        {
+                            PeliculaId = 7,
+                            Poster = "https://m.media-amazon.com/images/M/MV5BZDdmNjBlYTctNWU0MC00ODQxLWEzNDQtZGY1NmRhYjNmNDczXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_FMjpg_UX1005_.jpg",
+                            Sinopsis = "Un matrimonio recientemente fallecido le encarga a un extraño demonio que saque a una insoportable familia de su hogar.",
+                            Titulo = "Beetlejuice",
+                            Trailer = "https://www.imdb.com/video/vi2800222489?playlistId=tt0094721"
+                        },
+                        new
+                        {
+                            PeliculaId = 8,
+                            Poster = "https://m.media-amazon.com/images/M/MV5BMTY5MDMzODUyOF5BMl5BanBnXkFtZTcwMTQ3NTMyNA@@._V1_FMjpg_UX682_.jpg",
+                            Sinopsis = "Un boxeador poco conocido tiene la gran oportunidad de enfrentarse al campeón de los pesos pesados en un combate en el que espera estar a la altura y hacerse un nombre.",
+                            Titulo = "Rocky",
+                            Trailer = "https://www.imdb.com/video/vi2997093657?"
+                        },
+                        new
+                        {
+                            PeliculaId = 9,
+                            Poster = "https://m.media-amazon.com/images/M/MV5BNzVlY2MwMjktM2E4OS00Y2Y3LWE3ZjctYzhkZGM3YzA1ZWM2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_FMjpg_UY745_.jpg",
+                            Sinopsis = "Luke Skywalker une sus fuerzas con un caballero jedi, un piloto fanfarrón, un wookiee y dos droides para salvar a la galaxia de la estación espacial del Imperio, a la vez que intenta rescatar a la princesa Leia del malvado Darth Vader.",
+                            Titulo = "Star Wars",
+                            Trailer = "https://www.imdb.com/video/vi1317709849?playlistId=tt0076759"
+                        },
+                        new
+                        {
+                            PeliculaId = 10,
+                            Poster = "https://m.media-amazon.com/images/M/MV5BMmQ2MmU3NzktZjAxOC00ZDZhLTk4YzEtMDMyMzcxY2IwMDAyXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_FMjpg_UY720_.jpg",
+                            Sinopsis = "Un buque espacial percibe una transmisión desconocida pidiendo ayuda. Al llegar al origen de la señal encuentran a uno de los tripulantes atacado por una misteriosa forma de vida. Pronto se dan cuenta de que su ciclo vital acaba de empezar.",
+                            Titulo = "Alien",
+                            Trailer = "https://www.imdb.com/video/vi1497801241?playlistId=tt0078748"
                         });
                 });
 
@@ -247,17 +213,17 @@ namespace TP1_ORM_SOLIS_JAVIER.Migrations
                         new
                         {
                             SalaId = 1,
-                            Capacidad = 50
+                            Capacidad = 5
                         },
                         new
                         {
                             SalaId = 2,
-                            Capacidad = 100
+                            Capacidad = 15
                         },
                         new
                         {
                             SalaId = 3,
-                            Capacidad = 1
+                            Capacidad = 35
                         });
                 });
 
@@ -285,129 +251,23 @@ namespace TP1_ORM_SOLIS_JAVIER.Migrations
                     b.ToTable("Tickets");
                 });
 
-            modelBuilder.Entity("TP1_ORM_SOLIS_JAVIER.Entities.TipoMercaderia", b =>
-                {
-                    b.Property<int>("TipoMercaderiaId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Descripcion")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.HasKey("TipoMercaderiaId");
-
-                    b.ToTable("TipoMercaderia");
-
-                    b.HasData(
-                        new
-                        {
-                            TipoMercaderiaId = 1,
-                            Descripcion = "Entrada"
-                        },
-                        new
-                        {
-                            TipoMercaderiaId = 2,
-                            Descripcion = "Minutas"
-                        },
-                        new
-                        {
-                            TipoMercaderiaId = 3,
-                            Descripcion = "Pastas"
-                        },
-                        new
-                        {
-                            TipoMercaderiaId = 4,
-                            Descripcion = "Parrilla"
-                        },
-                        new
-                        {
-                            TipoMercaderiaId = 5,
-                            Descripcion = "Pizzas"
-                        },
-                        new
-                        {
-                            TipoMercaderiaId = 6,
-                            Descripcion = "Sandwich"
-                        },
-                        new
-                        {
-                            TipoMercaderiaId = 7,
-                            Descripcion = "Ensaladas"
-                        },
-                        new
-                        {
-                            TipoMercaderiaId = 8,
-                            Descripcion = "Bebidas"
-                        },
-                        new
-                        {
-                            TipoMercaderiaId = 9,
-                            Descripcion = "Cerveza Artesanal"
-                        },
-                        new
-                        {
-                            TipoMercaderiaId = 10,
-                            Descripcion = "Postres"
-                        });
-                });
-
-            modelBuilder.Entity("TP1_ORM_SOLIS_JAVIER.Entities.Comanda", b =>
-                {
-                    b.HasOne("TP1_ORM_SOLIS_JAVIER.Entities.FormaEntrega", "FormaEntrega")
-                        .WithMany("Comanda")
-                        .HasForeignKey("FormaEntregaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("FormaEntrega");
-                });
-
-            modelBuilder.Entity("TP1_ORM_SOLIS_JAVIER.Entities.ComandaMercaderia", b =>
-                {
-                    b.HasOne("TP1_ORM_SOLIS_JAVIER.Entities.Comanda", "Comanda")
-                        .WithMany("ComandaMercaderia")
-                        .HasForeignKey("ComandaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("TP1_ORM_SOLIS_JAVIER.Entities.Mercaderia", "Mercaderia")
-                        .WithMany("ComandaMercaderia")
-                        .HasForeignKey("MercaderiaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Comanda");
-
-                    b.Navigation("Mercaderia");
-                });
-
             modelBuilder.Entity("TP1_ORM_SOLIS_JAVIER.Entities.Funciones", b =>
                 {
-                    b.HasOne("TP1_ORM_SOLIS_JAVIER.Entities.Peliculas", "Peliculas")
+                    b.HasOne("TP1_ORM_SOLIS_JAVIER.Entities.Peliculas", "Pelicula")
                         .WithMany("Funciones")
-                        .HasForeignKey("PeliculasPeliculaId");
-
-                    b.HasOne("TP1_ORM_SOLIS_JAVIER.Entities.Salas", "Salas")
-                        .WithMany("Funciones")
-                        .HasForeignKey("SalasSalaId");
-
-                    b.Navigation("Peliculas");
-
-                    b.Navigation("Salas");
-                });
-
-            modelBuilder.Entity("TP1_ORM_SOLIS_JAVIER.Entities.Mercaderia", b =>
-                {
-                    b.HasOne("TP1_ORM_SOLIS_JAVIER.Entities.TipoMercaderia", "TipoMercaderia")
-                        .WithMany("Mercaderia")
-                        .HasForeignKey("TipoMercaderiaId")
+                        .HasForeignKey("PeliculaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("TipoMercaderia");
+                    b.HasOne("TP1_ORM_SOLIS_JAVIER.Entities.Salas", "Sala")
+                        .WithMany("Funciones")
+                        .HasForeignKey("SalaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Pelicula");
+
+                    b.Navigation("Sala");
                 });
 
             modelBuilder.Entity("TP1_ORM_SOLIS_JAVIER.Entities.Tickets", b =>
@@ -419,24 +279,9 @@ namespace TP1_ORM_SOLIS_JAVIER.Migrations
                     b.Navigation("Funciones");
                 });
 
-            modelBuilder.Entity("TP1_ORM_SOLIS_JAVIER.Entities.Comanda", b =>
-                {
-                    b.Navigation("ComandaMercaderia");
-                });
-
-            modelBuilder.Entity("TP1_ORM_SOLIS_JAVIER.Entities.FormaEntrega", b =>
-                {
-                    b.Navigation("Comanda");
-                });
-
             modelBuilder.Entity("TP1_ORM_SOLIS_JAVIER.Entities.Funciones", b =>
                 {
                     b.Navigation("Tickets");
-                });
-
-            modelBuilder.Entity("TP1_ORM_SOLIS_JAVIER.Entities.Mercaderia", b =>
-                {
-                    b.Navigation("ComandaMercaderia");
                 });
 
             modelBuilder.Entity("TP1_ORM_SOLIS_JAVIER.Entities.Peliculas", b =>
@@ -447,11 +292,6 @@ namespace TP1_ORM_SOLIS_JAVIER.Migrations
             modelBuilder.Entity("TP1_ORM_SOLIS_JAVIER.Entities.Salas", b =>
                 {
                     b.Navigation("Funciones");
-                });
-
-            modelBuilder.Entity("TP1_ORM_SOLIS_JAVIER.Entities.TipoMercaderia", b =>
-                {
-                    b.Navigation("Mercaderia");
                 });
 #pragma warning restore 612, 618
         }

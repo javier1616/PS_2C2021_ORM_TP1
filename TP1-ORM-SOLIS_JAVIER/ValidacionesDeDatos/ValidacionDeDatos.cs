@@ -2,9 +2,9 @@
 
 namespace TP1_ORM_SOLIS_JAVIER.ValidacionesDeDatos
 {
-    public static class ValidacionDeDatos
+    public class ValidacionDeDatos
     {
-        public static bool ValidarDato(string cadena, string tipoDeDato)
+        public bool ValidarDato(string cadena, string tipoDeDato)
         {
             bool esValido = false;
 

@@ -17,13 +17,11 @@ namespace TP1_ORM_SOLIS_JAVIER.EntitiesConfiguration
             builder.Property(c => c.Capacidad)
                 .IsRequired(true);
 
-
             builder.HasData(
 
-
-                   new Salas { SalaId = 1, Capacidad = 50 },
-                   new Salas { SalaId = 2, Capacidad = 100},
-                   new Salas { SalaId = 3, Capacidad = 1}
+                   new Salas { SalaId = 1, Capacidad = 5 },
+                   new Salas { SalaId = 2, Capacidad = 15},
+                   new Salas { SalaId = 3, Capacidad = 35}
                    
             );  
 

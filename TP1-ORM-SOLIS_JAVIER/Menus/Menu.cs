@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using TP1_ORM_SOLIS_JAVIER.DB_manipulation; 
 
 namespace TP1_ORM_SOLIS_JAVIER.Classes.Menus
 {
-    abstract class Menu
+    public abstract class Menu
     {
 
         protected string tituloDelMenu;
@@ -12,9 +11,6 @@ namespace TP1_ORM_SOLIS_JAVIER.Classes.Menus
         protected private Dictionary<string, string> menuConsole = new Dictionary<string, string>();
         // opcion seleccionada validada
         protected private string option;
-
-        protected private IngresarInformacion ingresarInformacion = new IngresarInformacion();
-        protected private ListarInformacion listarInformacion = new ListarInformacion();
         
         protected private bool salirDelMenu_flag = false;
 

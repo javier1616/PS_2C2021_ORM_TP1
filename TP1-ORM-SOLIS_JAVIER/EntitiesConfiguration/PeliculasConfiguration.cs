@@ -35,30 +35,92 @@ namespace TP1_ORM_SOLIS_JAVIER.EntitiesConfiguration
                    new Peliculas {
                        PeliculaId = 1,
                        Titulo = "Jurasic Park",
-                       Poster ="URL_Poster.png",
-                       Sinopsis ="Accidentes en un parque de atracciones con dinosaurios",
-                       Trailer ="URL_trailer.mp4"
-                       },
+                       Poster = "https://m.media-amazon.com/images/M/MV5BMjM2MDgxMDg0Nl5BMl5BanBnXkFtZTgwNTM2OTM5NDE@._V1_FMjpg_UX667_.jpg",
+                       Sinopsis = "Un paleontólogo pragmático que visita un parque temático casi completo tiene la tarea de proteger a un par de niños después de que un corte de energía provoque que los dinosaurios clonados del parque se suelten.",
+                       Trailer = "https://www.imdb.com/video/vi177055257?playlistId=tt0107290"
+                   },
 
                    new Peliculas
                    {
                        PeliculaId = 2,
-                       Titulo = "Indiana Jones y la Ultima Cruzada",
-                       Poster = "URL_Poster.png",
-                       Sinopsis = "Un cazarrecompensas intenta encontrar el santo grial",
-                       Trailer = "URL_trailer.mp4"
+                       Titulo = "Indiana Jones and the Last Crusade",
+                       Poster = "https://m.media-amazon.com/images/M/MV5BMjNkMzc2N2QtNjVlNS00ZTk5LTg0MTgtODY2MDAwNTMwZjBjXkEyXkFqcGdeQXVyNDk3NzU2MTQ@._V1_FMjpg_UY720_.jpg",
+                       Sinopsis = "En 1938, después de la desaparición de su padre el profesor Henry Jones Senior en su búsqueda del Santo Grial, Indiana Jones se enfrenta de nuevo a los Nazis para que evitar que obtengan sus poderes.",
+                       Trailer = "https://www.imdb.com/video/vi2007669529?playlistId=tt0097576"
                    },
 
                    new Peliculas
                    {
                        PeliculaId = 3,
-                       Titulo = "Rapido y Furioso 25: Carreras marcianas",
-                       Poster = "URL_Poster.png",
-                       Sinopsis = "Mas carreras, mas explosiones, mas velocidad. Ahora con naves espaciales",
-                       Trailer = "URL_trailer.mp4"
+                       Titulo = "Gremlins",
+                       Poster = "https://m.media-amazon.com/images/M/MV5BZDVjN2FkYTQtNTBlOC00MjM5LTgzMWEtZWRlNGUyYmNiOTFiXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_FMjpg_UX467_.jpg",
+                       Sinopsis = "Un niño rompe inadvertidamente tres reglas importantes sobre su nueva mascota y provoca una horda de monstruos malévolos y traviesos en una pequeña ciudad.",
+                       Trailer = "https://www.imdb.com/video/vi2626338585?playlistId=tt0087363"
+                   },
+
+                   new Peliculas
+                   {
+                       PeliculaId = 4,
+                       Titulo = "Back to the Future",
+                       Poster = "https://m.media-amazon.com/images/M/MV5BZmU0M2Y1OGUtZjIxNi00ZjBkLTg1MjgtOWIyNThiZWIwYjRiXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_FMjpg_UX1218_.jpg",
+                       Sinopsis = "Marty McFly, un estudiante de secundaria de 17 años, es enviado accidentalmente treinta años atrás en un DeLorean que viaja en el tiempo inventado por su amigo íntimo, el científico disidente Doc Brown.",
+                       Trailer = "https://www.imdb.com/video/vi252380953?playlistId=tt0088763"
+                   },
+
+                   new Peliculas
+                   {
+                       PeliculaId = 5,
+                       Titulo = "Clockwork Orange",
+                       Poster = "https://m.media-amazon.com/images/M/MV5BMTY3MjM1Mzc4N15BMl5BanBnXkFtZTgwODM0NzAxMDE@._V1_FMjpg_UX878_.jpg",
+                       Sinopsis = "En el futuro, el sádico líder de una banda es encarcelado y se ofrece como voluntario para un experimento de reeducación, pero no sale según lo planeado.",
+                       Trailer = "https://www.imdb.com/video/vi4030506521?playlistId=tt0066921"
+                   },
+
+                   new Peliculas
+                   {
+                       PeliculaId = 6,
+                       Titulo = "Attack of the Killer Tomatoes!",
+                       Poster = "https://m.media-amazon.com/images/M/MV5BZWMxOTEzMjktYjE3NC00NmZjLThlNzYtMDE3MDlmNWVmZTZkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_FMjpg_UX871_.jpg",
+                       Sinopsis = "Los tomates, hartos de tantos años de acabar como sofrito o bloody mary, están cobrando vida y están asesinando a los humanos. Se sospecha que este hecho está provocado por un pesticida creado por un loco que quiere el control del mundo.",
+                       Trailer = "https://www.imdb.com/video/vi179831065?playlistId=tt0080391"
+                   },
+
+                   new Peliculas
+                   {
+                       PeliculaId = 7,
+                       Titulo = "Beetlejuice",
+                       Poster = "https://m.media-amazon.com/images/M/MV5BZDdmNjBlYTctNWU0MC00ODQxLWEzNDQtZGY1NmRhYjNmNDczXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_FMjpg_UX1005_.jpg",
+                       Sinopsis = "Un matrimonio recientemente fallecido le encarga a un extraño demonio que saque a una insoportable familia de su hogar.",
+                       Trailer = "https://www.imdb.com/video/vi2800222489?playlistId=tt0094721"
+                   },
+
+                   new Peliculas
+                   {
+                       PeliculaId = 8,
+                       Titulo = "Rocky",
+                       Poster = "https://m.media-amazon.com/images/M/MV5BMTY5MDMzODUyOF5BMl5BanBnXkFtZTcwMTQ3NTMyNA@@._V1_FMjpg_UX682_.jpg",
+                       Sinopsis = "Un boxeador poco conocido tiene la gran oportunidad de enfrentarse al campeón de los pesos pesados en un combate en el que espera estar a la altura y hacerse un nombre.",
+                       Trailer = "https://www.imdb.com/video/vi2997093657?"
+                   },
+
+                   new Peliculas
+                   {
+                       PeliculaId = 9,
+                       Titulo = "Star Wars",
+                       Poster = "https://m.media-amazon.com/images/M/MV5BNzVlY2MwMjktM2E4OS00Y2Y3LWE3ZjctYzhkZGM3YzA1ZWM2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_FMjpg_UY745_.jpg",
+                       Sinopsis = "Luke Skywalker une sus fuerzas con un caballero jedi, un piloto fanfarrón, un wookiee y dos droides para salvar a la galaxia de la estación espacial del Imperio, a la vez que intenta rescatar a la princesa Leia del malvado Darth Vader.",
+                       Trailer = "https://www.imdb.com/video/vi1317709849?playlistId=tt0076759"
+                   },
+
+                   new Peliculas
+                   {
+                       PeliculaId = 10,
+                       Titulo = "Alien",
+                       Poster = "https://m.media-amazon.com/images/M/MV5BMmQ2MmU3NzktZjAxOC00ZDZhLTk4YzEtMDMyMzcxY2IwMDAyXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_FMjpg_UY720_.jpg",
+                       Sinopsis = "Un buque espacial percibe una transmisión desconocida pidiendo ayuda. Al llegar al origen de la señal encuentran a uno de los tripulantes atacado por una misteriosa forma de vida. Pronto se dan cuenta de que su ciclo vital acaba de empezar.",
+                       Trailer = "https://www.imdb.com/video/vi1497801241?playlistId=tt0078748"
                    }
 
-                   
                 );  
 
 
